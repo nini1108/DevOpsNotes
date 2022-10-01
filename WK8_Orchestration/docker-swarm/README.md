@@ -40,12 +40,9 @@ cd docker-swarm
 ```
 ## 4. Start a visualizer
 ```
-docker service create \
-  --name=viz \
-  --publish=8080:8080/tcp \
-  --constraint=node.role==manager \
-  --mount=type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock \
-  dockersamples/visualizer
+git clone https://github.com/dockersamples/docker-swarm-visualizer
+cd docker-swarm-visualizer
+docker-compose up
 ```
 
 ## 5. Deploy a stack

@@ -53,14 +53,14 @@ Some examples are:
 
 | Characters | Use |
 | --- | --- |
-| a|b | Matches any string that contains either 'a' or 'b' |
+| a&#124;b | Matches any string that contains either 'a' or 'b' |
 | [ ] | Is used to represent a list, so it matches a string that contains one of the characters inside the list |
 
 Some examples are:
 
 | Example | Description | Matching string examples |
 | --- | --- | --- |
-| se(a|e) | Matches any string that contains the text 'se' followed either by an 'a' or an 'e' | "**see**", "**sea**" |
+| se(a&#124;e) | Matches any string that contains the text 'se' followed either by an 'a' or an 'e' | "**see**", "**sea**" |
 | a[bcd] | Matches any string that contains an 'a' followed either by 'b', 'c', or 'd' | "**ab**", "**ac**", "**ad**" |
 
 ## Character classes

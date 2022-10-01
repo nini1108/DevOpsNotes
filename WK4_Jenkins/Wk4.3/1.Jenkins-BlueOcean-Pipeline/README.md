@@ -41,8 +41,7 @@ If you use standard Jenkins installation, rather than the image `jenkinsci/blueo
 
     ![Alt text](images/jenkins-blueocean-pipeline-03.png?raw=true)
 
-    3.1 Click "New Pipeline" on the top right corner.
-    Choose "Github" as the source.
+    3.1 Click "New Pipeline" on the top right corner. Choose "Github" as the source.
 
     3.2 Generate a token by clicking "Create an access token here" and provide the token to Jenkins.
 
@@ -55,11 +54,13 @@ If you use standard Jenkins installation, rather than the image `jenkinsci/blueo
 4. View your pipeline deployment process
 
     ![Alt text](images/jenkins-blueocean-pipeline-04.png?raw=true)
+
     You should be able to see all Build, Test and Deploy stage output.
 
 5. Update pipeline configuration
 
     ![Alt text](images/jenkins-blueocean-pipeline-05.png?raw=true)
+
     In "configure", update the "Scan repository triggers" to every minute.
 
 6. Create another branch in your forked repository
@@ -72,4 +73,4 @@ If you use standard Jenkins installation, rather than the image `jenkinsci/blueo
 
 8. Update your Jenkins file and observe how that changes your pipeline deployment behaviour.
 
-    Refer to these Jenkinsfile examples to update your config: <https://github.com/JiangRenDevOps/DevOpsLectureNotesV6/tree/master/Wk4.3/1.Jenkins-BlueOcaen-Pipeline/Pipeline-examples>
+    Refer to these Jenkinsfile examples to update your config: <https://github.com/JiangRenDevOps/DevOpsNotes/tree/master/WK4_Jenkins/Wk4.3/1.Jenkins-BlueOcean-Pipeline/Pipeline-examples>

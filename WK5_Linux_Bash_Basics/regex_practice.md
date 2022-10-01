@@ -10,7 +10,7 @@ For each of the following, give a couple of examples of strings which the regula
 
 - `/[a-zA-Z]+/`
 - `/^[A-Za-z][a-z]*$/`
-- `/p[aeiou]{,2}t/`
+- `/p[aeiou]{0,2}t/`
 - `/\s(\w+)\s\1/`
 - `/^(\+[0-9][0-9]|0)[0-9] ([0-9][ -]?){8}$/`
 

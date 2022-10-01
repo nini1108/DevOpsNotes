@@ -1,78 +1,6 @@
-# Jenkins Basic
+# Installation on Ubuntu
 
-## About Jenkins
-
-Jenkins is a powerful application that allows continuous integration and continuous delivery of projects, regardless of the platform you are working on. It's a popular tool for performing continuous integration of software projects.
-
-![Alt text](images/why_jenkins.jpg?raw=true)
-
-Jenkins is a free source that can handle any kind of automated build or continuous integration. You can integrate Jenkins with a number of testing and deployment technologies.
-
-## About CI/CD
-
-First of all, let's review the advantages of continuous integration:
-
-1. reduce the labor force
-2. avoid human error
-3. improve efficiency
-4. continuous feedback on quality
-5. quality assurance
-
-Second, to use Jenkins for continuously integration, you should have knowledge including:
-
-* Linux
-* Git
-* Jenkins
-* Maven
-* JDK
-* Other programming tools
-
-### Continuous Integration
-
-Continuous Integration (CI) helps developers integrate code into a shared repository by automatically verifying the build using unit tests and packaging the solution each time new code changes are submitted.
-
-For example, setting up a CI pipeline for Continuous Integration with a SharePoint Framework solution requires the following steps:
-
-1. Creating the Build Definition
-2. Installing NodeJS
-3. Restoring dependencies
-4. Executing Unit Tests
-5. Importing test results
-6. Importing code coverage information
-7. Bundling the solution
-8. Packaging the solution
-9. Preparing the artifacts
-10. Publishing the artifacts
-
-![Alt text](images/jenkins_ci.webp?raw=true)
-
-### Continuous Deployment
-
-Continuous Deployment (CD) takes validated code packages from build process and deploys them into a staging or production environment. Developers can track which deployments were successful or not and narrow down issues to specific package versions.
-
-Setting up a CD pipeline for Continuous Deployments with a SharePoint Framework solution requires the following steps:
-
-1. Creating the Release Definition
-2. Linking the Build Artifact
-3. Creating the Environment
-4. Installing NodeJS
-5. Installing the CLI for Microsoft 365
-6. Connecting to the App Catalog
-7. Adding the Solution Package to the App Catalog
-8. Deploying the Application
-9. Setting the Variables for the Environment
-
-![Alt text](images/jenkins_cd.webp?raw=true)
-
-### CI/CD with third-party solutions/services
-
-You can also use the Jenkins open-source automation server to deploy AWS CodeBuild artifacts with AWS CodeDeploy, creating a functioning CI/CD pipeline. When properly implemented, the CI/CD pipeline is triggered by code changes pushed to your GitHub repo, automatically fed into CodeBuild, then the output is deployed on CodeDeploy.
-
-![Alt text](images/jenkins_aws_cicd.png?raw=true)
-
-## Installation on Ubuntu
-
-### Prerequisites
+## Prerequisites
 
 A physical/virtual machine meeting with minimum hardware requirements:
 
@@ -111,7 +39,7 @@ You need to hit **``Y``** to confirm and continue.
 
 If you have more than one java version installed on your computer, make sure your default Java package version is supported by Jenkins.
 
-### Add apt repository
+## Add apt repository
 
 Jenkins has two release for Ubuntu: **LTS (Long-Term Support) release** and **Weekly release**. Both can be installed through ``apt``.
 
@@ -137,7 +65,7 @@ sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sour
 
 There is no output from above command.
 
-### Install Jenkins
+## Install Jenkins
 
 Once the Jenkins repository is added and enabled, you can update the package list and install the latest version of Jenkins by typing: ``apt``
 
@@ -190,7 +118,7 @@ Feb 02 05:08:56 jenkins-ubuntu jenkins[7934]:    ...done.
 Feb 02 05:08:56 jenkins-ubuntu systemd[1]: Started LSB: Start Jenkins at boot time.
 ```
 
-### Update the Firewall Configuration
+## Update the Firewall Configuration
 
 If your Jenkins is installed on a remote Ubuntu server and protected by OS firewall, you need to allow the inbound traffic to port ``8080`` so you can access Jenkins server from Web browser.
 
@@ -222,7 +150,15 @@ To                         Action      From
 22 (v6)                    ALLOW       Anywhere (v6)
 ```
 
-### Jenkins Setup
+## Azure Network Security Group Setting
+
+By default you will have Azure NSG to protect your network connections to and from your VM. The NSG is a white/black list to allow or deny some traffic by rules.
+
+To secure your VM, please set up the NSG rules as below:
+
+![Alt text](images/az-nsg.png)
+
+## Jenkins Setup
 
 Continue in a Web browser to complete the new Jenkins installation. Type your domain or IP address in address bar, then type port ``http://<your_ip_or_hostname>:8080``, and then a screen similar to the following will appear:
 

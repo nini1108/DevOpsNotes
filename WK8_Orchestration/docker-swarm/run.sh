@@ -18,7 +18,7 @@ echo $SWARM_MASTER_IP
 # Number of workers
 NUM_WORKERS=3
 # Docker version
-DOCKER_VERSION=17.09.1-ce-dind
+DOCKER_VERSION=20.10.7-dind
 
 # Run NUM_WORKERS workers with SWARM_TOKEN
 for i in $(seq "${NUM_WORKERS}"); do
@@ -26,13 +26,6 @@ for i in $(seq "${NUM_WORKERS}"); do
 	docker --host=localhost:${i}2375 swarm join --token ${SWARM_TOKEN} ${SWARM_MASTER_IP}:2377
 done
 
-# Create visualizer
-docker service create \
-  --name=viz \
-  --publish=8080:8080/tcp \
-  --constraint=node.role==manager \
-  --mount=type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock \
-  dockersamples/visualizer
 
 docker node ls
 

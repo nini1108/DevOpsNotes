@@ -28,13 +28,6 @@ for i in $(seq "${NUM_WORKERS}"); do
 	docker exec worker-${i} docker swarm join --token ${SWARM_TOKEN} ${SWARM_MASTER_IP}:2377
 done
 
-# Create visualizer
-docker service create \
-  --name=viz \
-  --publish=8080:8080/tcp \
-  --constraint=node.role==manager \
-  --mount=type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock \
-  dockersamples/visualizer
 
 docker node ls
 

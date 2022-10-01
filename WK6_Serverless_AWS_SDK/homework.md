@@ -1,15 +1,23 @@
 # Homework
-1. Take your "hello world" lambda function and try to integrate it with following services as its trigger:
-- AWS EventBridge (CloudWatch events)
-- S3 upload event
-- AWS API Gateway
-2. Write two scripts, one in bash and one in python, that each implement the following feature: change Amazon EC2 Instance Type with a given instance ID, and a new instance type. Think about following before you start writing these scripts:
-- what should be the input and output of your script?
-- what is the workflow of your script?
-- what are the corner cases of your workflow? e.g. what if input instance ID does not exist, or the provided instance type is already being used by the instance
-- how would you design error handling in your script to handle these corner cases?
-3. Deploy a Lambda function using AWS CLI, that scans and terminate EC2 instances without tag "Name=Protect, Value=True" on a daily basis, then send an email to yourself summarising the instances that has been terminated.
-- You might want to manually build and test your lambda function first before you deploy it using CLI
-- Consider sending email using AWS SNS: https://docs.aws.amazon.com/sns/latest/dg/sns-email-notifications.html
-- How do you specify lambda run schedule in your AWS CLI command?
-4. (Optional) Build a three-tier architecture using a Serverless architecture: AWS API Gateway and Lambda https://docs.aws.amazon.com/whitepapers/latest/serverless-multi-tier-architectures-api-gateway-lambda/three-tier-architecture-overview.html
+1. HelloWorld API extention: Update API request interface
+- Notice your lambda function looks up four attributes from the api call: `name`, `city`, `day` and `time`. Try to update your API so that:
+    - the API expects all four attributes passed in from API call body, and not query parameter or header.
+    - only `name` and `city` is required from API call. When any of these two are not provided, the API should return error message indicating the correct API call parameters.
+    - when `day` and `time` are not provided from API call, dynamically lookup day and time from code (use AEST timezone) and use the result in the response
+
+2.  HelloWorld API extention: Support data read and write in your API
+- Rename the exsiting `/helloworld` resource to `/register` resource, and support following when the API gets a PUT request on `/register`:
+    - the API expects two required body attribute `name` and `city`, and put a unique record in dynamodb. (might need to introduce a primary key `ID` and generate this uniquely via code)
+    - when the incoming request does not supply any of the required attribute, the API should return error message indicating the correct API call parameters.
+- Create a new resource `/lookup` in the API, and support following when the API gets a GET request on `/lookup`:
+    - the API expects one required body attribute `name`, and return all matched records (case insensitive) from dynamodb that matches the input name.
+
+3. HelloWorld API extention: Deploy your API using SAM
+
+You have been using AWS console to create and update your API Gateway and Lambda function.
+
+It's time to start using AWS SAM to build and deploy the API.
+Ref: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-getting-started-hello-world.html
+
+Consider following:
+- use `sam local invoke` to test your function during development

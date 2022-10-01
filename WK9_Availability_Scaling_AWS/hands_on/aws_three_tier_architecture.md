@@ -194,13 +194,11 @@ More on launch template: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2
 
 - Create a Launch template
 
-    ami: use : ami-04f77aa5970939148 (#   Free Tier AMI: Amazon Linux 2 AMI (HVM), SSD Volume Type - ami-04f77aa5970939148 (64-bit x86))
+    ami: use : ami-0b55fc9b052b03618 (#   Free Tier AMI: Amazon Linux 2 AMI (HVM) - Kernel 5.10, SSD Volume Type )
 
     instance type: t2.micro (free-tier)
 
     key pair name: same as before
-
-    ![Alt text](../images/multi-tier/launch-template-settings.png?raw=true)
 
     network: enable public ip and select ec2 private security group
 

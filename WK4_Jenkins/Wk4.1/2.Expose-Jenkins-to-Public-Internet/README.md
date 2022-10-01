@@ -9,6 +9,7 @@ This is to demo how to expose a server inside the firewall to public internet vi
 ## Steps
 
 ### Step 1: Login to ngrok via Github or Google
+
 <https://dashboard.ngrok.com/login>
 
 ![Alt text](images/expose-jenkins-to-public-internet-01.png?raw=true)
